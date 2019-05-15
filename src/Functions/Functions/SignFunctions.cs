@@ -33,14 +33,5 @@ namespace Functions.Functions
 
             await SignService.Sign(authKey, Convert.ToInt32(userId));
         }
-
-        [FunctionName("Test")]
-        public async Task Test([TimerTrigger("0 * * * * MON-FRI")]TimerInfo myTimer, ILogger log)
-        {
-            var authKey = _configuration["AuthToken"];
-            var userId = _configuration["UserId"];
-
-            await SignService.Sign(authKey, Convert.ToInt32(userId));
-        }
     }
 }
